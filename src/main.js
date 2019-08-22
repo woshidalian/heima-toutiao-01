@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
-import ElementUI from 'element-ui'//
-import 'element-ui/lib/theme-chalk/index.css'//
+import ElementUI from 'element-ui'// 按说明引入
 
-Vue.use(ElementUI)
-// Vue.config.productionTip = false
+import 'element-ui/lib/theme-chalk/index.css'// 按说明引入：样式
+
+import router from '@/router'
+Vue.use(ElementUI)// 按说明引入：插件形式
+Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
+  router,
   render: h => h(App)
 }).$mount('#app')
