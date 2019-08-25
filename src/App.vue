@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    APP
+
  <!-- 定义一个路由出口组件渲染位置 -->
  <router-view></router-view>
   </div>
