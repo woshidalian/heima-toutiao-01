@@ -4,39 +4,42 @@
     <!-- 侧边导航菜单 -->
     <el-aside :width="isCollapse?'64px':'200px'">
         <!-- logo :设置图标为背景图便于操作-->
+        <!-- 动态绑定类名，控制大小 -->
         <div class="logo" :class="{miniLogo:isCollapse}"></div>
         <!-- 导航菜单 -->
             <el-menu
-       default-active="1"
+       default-active="/"
         class="el-menu-vertical-demo"
         background-color="#002033"
         text-color="#fff"
         active-text-color="#ffd04b"
         :collapse="isCollapse"
       :collapse-transition="false"
-        >
 
+      router
+        >
+    <!--router属性 激发路由 -->
       <el-menu-item index="1">
         <i class="el-icon-s-home"></i>
         <span slot="title">首页</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="article">
         <i class="el-icon-document"></i>
         <span slot="title">内容管理</span>
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="image">
         <i class="el-icon-picture"></i>
         <span slot="title">素材管理</span>
       </el-menu-item>
-        <el-menu-item index="4">
+        <el-menu-item index="publish">
           <i class="el-icon-s-promotion"></i>
           <span slot="title">发布文章</span>
         </el-menu-item>
-        <el-menu-item index="5">
+        <el-menu-item index="comment">
           <i class="el-icon-chat-dot-round"></i>
           <span slot="title">评论管理</span>
         </el-menu-item>
-        <el-menu-item index="6">
+        <el-menu-item index="setting">
           <i class="el-icon-present"></i>
           <span slot="title">粉丝管理</span>
         </el-menu-item>
@@ -110,9 +113,11 @@ export default {
         height: 60px;
         background: #002244 url(../../assets/images/logo_admin.png) no-repeat center / 140px auto ;
     }
-    // 利用层级渲染特性，当开关切换时更改图片
+    // 利用层级渲染特性，当开关切换时更改图片,s使用背景图不更改原来页面其他属性
     .miniLogo {
       background-image: url(../../assets/images/logo_admin_01.png);
+
+    //   ？？？？bgz
       background-size: 36px auto;
     }
     .el-menu{
