@@ -5,7 +5,13 @@ import ElementUI from 'element-ui'// 按说明引入
 
 import 'element-ui/lib/theme-chalk/index.css'// 按说明引入：样式
 
+// 简单配置axios
+import axios from 'axios'
+
 import router from '@/router'
+// 共享axios,所有人都可以看到
+Vue.prototype.$http = axios
+
 Vue.use(ElementUI)// 按说明引入：插件形式
 Vue.config.productionTip = false
 

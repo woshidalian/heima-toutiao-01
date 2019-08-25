@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   // 定义路由规则（路径==>组件）
   routes: [
-    { path: '/', redirect: '/login' },
+    // { path: '/', redirect: '/login' },
     // name 方便跳转路由
     { path: '/login', name: 'login', component: Login }
   ]
