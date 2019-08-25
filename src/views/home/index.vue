@@ -2,16 +2,19 @@
     <!-- 首页基础布局 -->
 <el-container class="my-container">
     <!-- 侧边导航菜单 -->
-    <el-aside width="200px">
+    <el-aside :width="isCollapse?'64px':'200px'">
         <!-- logo :设置图标为背景图便于操作-->
-        <div class="logo"></div>
+        <div class="logo" :class="{miniLogo:isCollapse}"></div>
         <!-- 导航菜单 -->
             <el-menu
        default-active="1"
         class="el-menu-vertical-demo"
         background-color="#002033"
         text-color="#fff"
-        active-text-color="#ffd04b">
+        active-text-color="#ffd04b"
+        :collapse="isCollapse"
+      :collapse-transition="false"
+        >
 
       <el-menu-item index="1">
         <i class="el-icon-s-home"></i>
@@ -47,7 +50,7 @@
     <el-container>
         <!-- 头部内容 -->
       <el-header>
-          <span class="icon el-icon-s-fold"></span>
+          <span @click="toggleAside()" class="icon el-icon-s-fold"></span>
           <span class="text"> 江苏传智播客科技教育有限公司</span>
         <!-- 下拉菜单组件 -->
         <el-dropdown class="my-dropdown">
@@ -76,6 +79,18 @@
 
 <script>
 export default {
+  // 通过数据切换页面
+  data () {
+    return {
+      isCollapse: false
+    }
+  },
+  methods: {
+    toggleAside () {
+      // 切换两个状态
+      this.isCollapse = !this.isCollapse
+    }
+  }
 }
 </script>
 
@@ -94,6 +109,11 @@ export default {
         width: 100%;
         height: 60px;
         background: #002244 url(../../assets/images/logo_admin.png) no-repeat center / 140px auto ;
+    }
+    // 利用层级渲染特性，当开关切换时更改图片
+    .miniLogo {
+      background-image: url(../../assets/images/logo_admin_01.png);
+      background-size: 36px auto;
     }
     .el-menu{
         border-right: none;
