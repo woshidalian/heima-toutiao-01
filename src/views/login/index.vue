@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import store from '@/store'
+
 export default {
   data () {
     // 在data 之前定义校验函数
@@ -43,8 +45,8 @@ export default {
     }
     return {
       loginForm: {
-        mobile: '',
-        code: ''
+        mobile: '15111112222',
+        code: '246810'
       },
       // 表单校验规则对象
       loginRules: {
@@ -66,9 +68,14 @@ export default {
       // 通过ref属性获取表单实例中的validate方法（判断是否成功），进行判断，
       this.$refs.loginForm.validate(valid => {
         if (valid) {
+          //  校验成功调用登录接口
           this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm)
             .then(res => {
             // 成功跳转
+            // 用户信息（res.data.data）---res响应对象=》 res.data响应主体=》响应主体包含data、message等信息。
+            // 操作用户信息就是操作store 存储 （封装一个模块，进行用户信息操作，可共用）
+              store.setUser(res.data.data)
+
               this.$router.push('/')
             })
             .catch(() => {

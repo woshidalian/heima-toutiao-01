@@ -5,8 +5,9 @@ import ElementUI from 'element-ui'// 按说明引入
 
 import 'element-ui/lib/theme-chalk/index.css'// 按说明引入：样式
 
-// 简单配置axios
-import axios from 'axios'
+// 简单配置axios,   使用自己配置好的axios
+// import axios from 'axios'
+import axios from '@/api'
 
 import router from '@/router'
 // 共享axios,所有人都可以看到
